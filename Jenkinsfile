@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'php --version'
+                git clone https://github.com/CristoJGM2612/php-helloworld/
+                sudo docker build -t hello-word-php-apache .
+                sudo docker run -p 8090:8090 hello-word-php-apache
             }
         }
     }
